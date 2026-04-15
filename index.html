@@ -1,35 +1,51 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="iso-8859-1">
     <title>Ficha de Alumno - SIGA USM</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: Arial, Helvetica, sans-serif; font-size: 11px; margin: 0; padding: 0; background-color: #fff; }
-        .bg-usm-blue { background-color: #003057; }
-        .bg-usm-orange { background-color: #f7941d; }
-        /* Estilos extraídos del estilo.css institucional */
-        .Encabezado03 { background-color: #003057; color: #FFFFFF; font-weight: bold; font-size: 11px; padding: 2px 5px; }
+    <script type="text/javascript">
+        // Funciones originales del SIGA
+        function acceptNum(evt){ if(window.event) key = evt.keyCode; else key = evt.which; return (key <= 13 || (key >= 48 && key <= 57)); }
+        function captura(evt){ if(window.event) key = evt.keyCode; else key = evt.which; return ((key!=13 && key!=39 && key!=34)); }
+        
+        function setCombo_comuna(comuna, tipo){
+            var mIndex = comuna.selectedIndex;
+            var ubicacion = "";
+            // Datos simplificados para la demo, el sistema real usa arrays gigantes
+            if (mIndex > 0) ubicacion = "Santo Domingo, Región de Valparaíso, Chile";
+            if (tipo == 1) document.getElementById("ubic_pers").innerHTML = ubicacion;
+            if (tipo == 2) document.getElementById("ubic_acad").innerHTML = ubicacion;
+        }
+
+        function inicia() {
+            setCombo_comuna(document.form_alumno.in_comuna_pers_disabled, 1);
+            setCombo_comuna(document.form_alumno.in_comuna_acad, 2);
+        }
+    </script>
+    <style type="text/css">
+        body { font-family: Arial, Helvetica, sans-serif; font-size: 11px; background-color: #fff; padding: 20px; }
+        .Encabezado03 { background-color: #003057; color: #FFFFFF; font-weight: bold; font-size: 11px; padding: 3px 5px; }
         .Celda02 { background-color: #FFFFFF; border: 1px solid #003057; border-collapse: collapse; }
         .letra7 { font-size: 9px; color: #666666; }
         .letra8 { font-size: 11px; }
-        .letra07 { font-size: 10px; color: #003366; }
+        .letra07 { font-size: 10px; color: #003366; font-weight: bold; }
         input[type="text"], select { border: 1px solid #7a7a7a; height: 18px; font-size: 11px; padding: 0 2px; }
         .input-disabled { background-color: #e8e8e8; color: #333; }
-        .data-text { color: #003366; font-weight: bold; padding-left: 4px; }
-        table.academic { width: 100%; border-collapse: collapse; border: 1px solid #999; margin-top: 5px; }
-        table.academic td, table.academic th { border: 1px solid #999; padding: 4px; text-align: center; }
-        table.academic th { background-color: #E9E9E9; color: #003366; font-weight: normal; }
+        .data-font { color: #003366; font-weight: bold; }
+        table.academic-results { width: 100%; border-collapse: collapse; border: 1px solid #999; margin-top: 5px; }
+        table.academic-results td, table.academic-results th { border: 1px solid #999; padding: 4px; text-align: center; }
+        table.academic-results th { background-color: #E9E9E9; color: #003366; font-weight: normal; }
     </style>
 </head>
-<body class="p-4">
+<body onLoad="inicia()">
 
-    <div class="flex justify-between items-center mb-4 px-2">
+    <div class="flex justify-between items-center mb-6">
         <div class="flex items-center">
             <img src="https://usm.cl/assets/img/logo-usm.png" alt="USM" class="h-12">
             <div class="ml-3 font-bold text-gray-700 leading-tight">UNIVERSIDAD TECNICA<br>FEDERICO SANTA MARIA</div>
         </div>
-        <div class="bg-usm-orange flex items-center h-10 rounded shadow-sm">
+        <div class="bg-[#f7941d] flex items-center h-10 rounded shadow-sm">
             <div class="text-white font-bold text-2xl px-3 border-r border-white/30">SIGA</div>
             <div class="text-[8px] text-white px-2 font-bold leading-none uppercase">Sistema de Información<br>de Gestión Académica</div>
         </div>
@@ -38,146 +54,137 @@
     <form name="form_alumno">
         <table class="w-full mb-1">
             <tr class="Encabezado03">
-                <td><span class="mr-1">↘</span> Datos personales</td>
+                <td><img src="https://siga.usm.cl/pag/imagen/jpg/flecha_blanca_fina.gif" width="10" height="10" class="inline mr-1"> Datos personales</td>
             </tr>
         </table>
         
-        <table class="w-full Celda02 mb-4">
+        <table class="w-full Celda02 mb-6">
             <tr>
-                <td class="p-1 w-1/5">Nombre completo</td>
-                <td class="data-text" colspan="4">LETELIER CERIC RAFAEL AUGUSTO</td>
-                <td rowspan="6" class="w-40 text-center border-l border-blue-900 bg-gray-50">
-                    <img src="perfil.png" alt="Foto Alumno" class="inline-block border border-black shadow-sm" style="width: 130px; height: 150px;">
+                <td width="20%" class="p-1">Nombre completo</td>
+                <td colspan="4" class="data-font">&nbsp; LETELIER CERIC RAFAEL AUGUSTO</td>
+                <td rowspan="6" width="16%" align="center" valign="middle" class="border-l border-blue-900 bg-gray-50">
+                    <img name="foto" src="perfil.png" border="1" height="150" width="150" class="shadow-sm" onError="this.src='https://siga.usm.cl/pag/imagen/sinfoto.jpg';">
                 </td>
             </tr>
             <tr>
-                <td class="p-1">R.U.T.</td>
-                <td class="data-text w-1/3">22.261.908-4</td>
-                <td class="p-1 w-24">Sexo</td>
-                <td class="w-4"></td>
-                <td class="data-text">Masculino</td>
+                <td width="20%" class="p-1">R.U.T.</td>
+                <td width="33%" class="data-font">&nbsp; 22.261.908-4</td>
+                <td width="9%" class="p-1">Sexo</td>
+                <td width="2%">&nbsp;</td>
+                <td width="20%" class="data-font">Masculino</td>
             </tr>
             <tr>
-                <td class="p-1">Fecha de nacimiento <br><span class="letra7">(dd/mm/aaaa)</span></td>
-                <td class="data-text">18/11/2006</td>
+                <td class="p-1">Fecha de nacimiento<br><span class="letra7">(dd/mm/aaaa)</span></td>
+                <td class="data-font">&nbsp; 18/11/2006</td>
                 <td class="p-1">Estado civil</td>
-                <td></td>
-                <td class="data-text">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td class="data-font">&nbsp;</td>
             </tr>
             <tr>
-                <td class="p-1">Pasaporte <br><span class="letra7">(sólo extranjero)</span></td>
-                <td class="p-1"><input type="text" name="in_pasaporte" class="w-32"></td>
+                <td class="p-1">Pasaporte<br><span class="letra7">(sólo extranjero)</span></td>
+                <td class="p-1">&nbsp; <input type="text" name="in_pasaporte" size="15" value=""></td>
                 <td class="p-1">Nacionalidad</td>
-                <td></td>
-                <td class="data-text">Chilena</td>
+                <td>&nbsp;</td>
+                <td class="data-font">Chilena</td>
             </tr>
             <tr>
                 <td class="p-1">Celular</td>
-                <td class="p-1"><input type="text" value="964794046" class="w-32"></td>
+                <td class="p-1">&nbsp; <input type="text" name="in_celular" size="15" value="964794046"></td>
                 <td class="p-1">Previsión</td>
-                <td></td>
+                <td>&nbsp;</td>
                 <td class="p-1">
-                    <select class="w-full"><option selected>Sin Información</option></select>
+                    <select name="in_prevision" class="w-full"><option value="0" selected>Sin Información</option></select>
                 </td>
             </tr>
             <tr>
                 <td class="p-1">E-mail USM</td>
-                <td class="data-text">rletelier@usm.cl</td>
+                <td class="data-font">&nbsp; rletelier@usm.cl</td>
                 <td class="p-1">E-mail personal</td>
-                <td></td>
-                <td class="data-text underline italic">rafaletelier6@gmail.com</td>
+                <td>&nbsp;</td>
+                <td class="data-font italic underline">rafaletelier6@gmail.com</td>
             </tr>
             <tr>
                 <td class="p-1">Grupo Sanguíneo</td>
-                <td class="p-1">
-                    <select><option selected>Rh- A</option></select>
-                </td>
+                <td class="p-1">&nbsp; <select name="in_grupo_sanguineo"><option value="1" selected>Rh- A</option></select></td>
                 <td class="p-1">N° Hijos</td>
-                <td class="text-center"></td>
-                <td class="p-1"><input type="text" value="0" class="w-8"></td>
-                <td></td>
+                <td align="center">&nbsp;</td>
+                <td class="p-1"><input name="in_num_hijos" type="text" value="0" size="3"></td>
+                <td class="bg-white"></td>
             </tr>
         </table>
 
         <table class="w-full Encabezado03 mb-1">
-            <tr><td><span class="mr-1">↘</span> Datos del apoderado</td></tr>
+            <tr><td><img src="https://siga.usm.cl/pag/imagen/jpg/flecha_blanca_fina.gif" width="10" height="10" class="inline mr-1"> Datos del apoderado</td></tr>
         </table>
-        <table class="w-full Celda02 mb-4">
+        <table class="w-full Celda02 mb-6">
             <tr>
-                <td class="p-1 w-1/5">R.U.T.</td>
-                <td class="p-1 w-1/3">
-                    <input type="text" value="0" class="input-disabled w-24">
+                <td width="20%" class="p-1">R.U.T.</td>
+                <td width="33%" class="p-1">
+                    &nbsp;<input disabled type="text" value="0" class="input-disabled w-24">
                     <span class="letra7 ml-1">Ej. 12345678k</span>
                 </td>
-                <td class="p-1 w-24">Nombre</td>
-                <td class="w-4"></td>
-                <td class="p-1"><input type="text" value="CERIC CARO VESNA KATRYN" class="input-disabled w-full"></td>
+                <td width="9%" class="p-1">Nombre</td>
+                <td width="1%">&nbsp;</td>
+                <td class="p-1"><input disabled type="text" value="CERIC CARO VESNA KATRYN" class="input-disabled w-full"></td>
             </tr>
         </table>
 
         <table class="w-full Encabezado03 mb-1">
-            <tr><td><span class="mr-1">↘</span> Dirección del grupo familiar</td></tr>
+            <tr><td><img src="https://siga.usm.cl/pag/imagen/jpg/flecha_blanca_fina.gif" width="10" height="10" class="inline mr-1"> Dirección del grupo familiar</td></tr>
         </table>
-        <table class="w-full Celda02 mb-4">
+        <table class="w-full Celda02 mb-6">
             <tr>
-                <td class="p-1 w-1/5">Dirección</td>
-                <td class="p-1" colspan="4"><input type="text" value="LAS AZALEAS K22" class="input-disabled w-[450px]"></td>
+                <td width="20%" class="p-1">Dirección</td>
+                <td colspan="4" class="p-1">&nbsp;<input disabled type="text" value="LAS AZALEAS K22" class="input-disabled w-1/2"></td>
             </tr>
             <tr>
                 <td class="p-1">Comuna</td>
-                <td class="p-1">
-                    <select class="input-disabled w-48"><option>Santo Domingo</option></select>
-                </td>
+                <td class="p-1">&nbsp;<select disabled name="in_comuna_pers_disabled" class="input-disabled w-48"><option selected>Santo Domingo</option></select></td>
                 <td class="p-1">Ubicación</td>
-                <td></td>
-                <td class="data-text letra07">Santo Domingo, Región de Valparaíso, Chile</td>
+                <td>&nbsp;</td>
+                <td class="data-font letra07"><span id="ubic_pers"></span></td>
             </tr>
         </table>
 
         <table class="w-full Encabezado03 mb-1">
-            <tr><td><span class="mr-1">↘</span> Datos académicos</td></tr>
+            <tr><td><img src="https://siga.usm.cl/pag/imagen/jpg/flecha_blanca_fina.gif" width="10" height="10" class="inline mr-1"> Datos académicos</td></tr>
         </table>
         <div class="Celda02 p-2">
-            <div class="flex gap-10 mb-2">
-                <div>Ingreso USM Pregrado: <span class="data-text">2025</span></div>
-                <div class="text-blue-800 underline">Consultar en Portal de Autoservicio Institucional</div>
-            </div>
-            <table class="academic">
+            <table width="100%" class="mb-2">
+                <tr>
+                    <td width="19%">Ingreso USM Pregrado</td>
+                    <td class="data-font">2025</td>
+                </tr>
+            </table>
+            <table class="academic-results">
                 <thead>
                     <tr>
-                        <th>Carrera</th>
-                        <th>Campus/Sede</th>
-                        <th>Jornada</th>
-                        <th>Rol</th>
-                        <th>Año</th>
-                        <th>Plan</th>
-                        <th>Última matrícula</th>
-                        <th>Situación académica</th>
+                        <th>Carrera</th><th>Campus/Sede</th><th>Jornada</th><th>Rol</th><th>Año</th><th>Plan</th><th>Última matrícula</th><th>Situación académica</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white">
-                        <td class="text-left font-bold">Ing. Civil Electrónica<br><span class="letra7 font-normal">Vigente</span></td>
+                    <tr class="letra8 bg-white">
+                        <td class="text-left">Ing. Civil Electrónica<br><span class="letra7">Vigente</span></td>
                         <td>Casa Central Valparaíso</td>
                         <td>Diurno</td>
                         <td>202521073-8</td>
                         <td>2025</td>
-                        <td class="data-text">2106</td>
-                        <td class="leading-tight">2025-2<br>Matrícula Válida<br><span class="letra7">(22/07/2025)</span></td>
-                        <td class="text-red-600 font-bold leading-tight">Eliminado<br><span class="letra7 font-normal">(16/12/2025)</span></td>
+                        <td>2106</td>
+                        <td>2026-1<br>Matrícula Válida</td>
+                        <td class="font-bold text-green-700">vigente<br><span class="letra7">(13/02/2026)</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </form>
 
-    <div class="bg-usm-orange fixed bottom-0 left-0 w-full p-1 flex justify-between px-4 border-t border-white">
-        <button class="bg-[#e1e1e1] border border-black px-2 py-0.5 hover:bg-white text-[10px]">Enviar cambios</button>
+    <div class="fixed bottom-0 left-0 w-full bg-[#f7941d] p-1 flex justify-between px-10 border-t border-white shadow-lg">
+        <button class="bg-[#e1e1e1] border border-black px-2 py-0.5 text-[10px] hover:bg-white transition-colors">Enviar cambios</button>
         <div class="flex gap-1">
-            <button class="bg-[#e1e1e1] border border-black px-4 py-0.5 hover:bg-white text-[10px]">Deshacer</button>
-            <button class="bg-[#e1e1e1] border border-black px-4 py-0.5 hover:bg-white text-[10px]">Imprimir</button>
+            <button class="bg-[#e1e1e1] border border-black px-4 py-0.5 text-[10px] hover:bg-white transition-colors">Deshacer</button>
+            <button class="bg-[#e1e1e1] border border-black px-4 py-0.5 text-[10px] hover:bg-white transition-colors">Imprimir</button>
         </div>
-        <button class="bg-[#e1e1e1] border border-black px-4 py-0.5 hover:bg-white text-[10px]">Volver</button>
+        <button class="bg-[#e1e1e1] border border-black px-4 py-0.5 text-[10px] hover:bg-white transition-colors">Volver</button>
     </div>
 
 </body>
