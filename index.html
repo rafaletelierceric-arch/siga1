@@ -2,166 +2,161 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGA - Ficha Personal</title>
+    <title>Ficha Personal - SIGA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Arial', sans-serif; font-size: 11px; background-color: #fff; color: #333; }
-        .bg-usm-blue { background-color: #003057; }
-        .bg-usm-orange { background-color: #f7941d; }
-        .text-usm-blue { color: #003057; }
-        .border-usm { border: 1px solid #003057; }
-        .section-header { background-color: #003057; color: white; padding: 2px 8px; font-weight: bold; font-size: 11px; }
-        .input-field { border: 1px solid #888; padding: 1px 4px; height: 20px; font-size: 11px; background-color: #fff; }
-        .input-readonly { background-color: #eee; border: 1px solid #aaa; color: #555; }
-        table { width: 100%; border-collapse: collapse; }
-        th { background-color: #f2f2f2; border: 1px solid #ccc; font-weight: normal; padding: 3px; color: #666; font-size: 10px; }
-        td { border: 1px solid #ccc; padding: 4px; text-align: center; }
-        .btn-siga { background-color: #e1e1e1; border: 1px solid #777; padding: 2px 10px; cursor: pointer; font-size: 11px; }
+        body { font-family: Arial, Helvetica, sans-serif; font-size: 11px; background-color: #fff; color: #000; }
+        .bg-siga-blue { background-color: #003358; }
+        .bg-siga-orange { background-color: #f7941d; }
+        .table-section { border: 1px solid #003358; border-collapse: collapse; width: 100%; margin-bottom: 4px; }
+        .header-blue { background-color: #003358; color: white; font-weight: bold; padding: 2px 5px; }
+        .label-cell { color: #333; width: 15%; padding: 2px 4px; }
+        .data-cell { color: #000080; font-weight: bold; padding: 2px 4px; }
+        .input-text { border: 1px solid #7a7a7a; height: 18px; padding: 0 2px; font-size: 11px; }
+        .input-gray { background-color: #e8e8e8; }
+        .academic-table th { background-color: #f0f0f0; border: 1px solid #ccc; font-weight: normal; padding: 2px; color: #666; }
+        .academic-table td { border: 1px solid #ccc; padding: 2px; text-align: center; }
+        .footer-bar { background-color: #f7941d; border-top: 1px solid #fff; position: fixed; bottom: 0; width: 100%; padding: 2px; }
+        .btn-grey { background-color: #e1e1e1; border: 1px solid #000; font-size: 11px; padding: 1px 6px; cursor: pointer; }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="p-0 m-0">
 
-    <header class="flex justify-between items-center px-10 py-3 bg-white">
-        <div class="flex items-center gap-4">
-            <img src="https://usm.cl/assets/img/logo-usm.png" alt="USM" class="h-14">
-            <div class="text-[13px] font-bold text-gray-800 leading-tight uppercase">
-                Universidad Técnica<br>Federico Santa María
-            </div>
+    <div class="flex justify-between items-center px-4 py-2 border-b">
+        <div class="flex items-center">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_6M5K9o6vE6KjZ_WzB_T0-3W8_L0X7zGZ7A&s" alt="Logo USM" class="h-12">
+            <div class="ml-2 font-bold text-gray-700 leading-tight">UNIVERSIDAD TECNICA<br>FEDERICO SANTA MARIA</div>
         </div>
-        <div class="bg-usm-orange flex items-center h-12 rounded shadow-sm overflow-hidden">
-            <div class="text-white font-bold text-3xl px-4 border-r border-white/20">SIGA</div>
-            <div class="text-[9px] text-white px-3 font-bold leading-none uppercase">
-                Sistema de Información<br>de Gestión Académica
-            </div>
+        <div class="bg-siga-orange flex items-center h-10 rounded shadow-sm">
+            <div class="text-white font-bold text-2xl px-3 border-r border-white/30">SIGA</div>
+            <div class="text-[8px] text-white px-2 font-bold leading-none">SISTEMA DE INFORMACIÓN<br>DE GESTIÓN ACADÉMICA</div>
         </div>
-    </header>
+    </div>
 
-    <div class="bg-usm-blue text-white px-4 py-1 flex justify-between items-center text-[10.5px]">
+    <div class="bg-siga-blue text-white px-2 py-0.5 flex justify-between items-center text-[10px]">
         <div>sesión de: <strong>LETELIER CERIC RAFAEL AUGUSTO</strong></div>
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-3">
             <span>Estudiante - CASA CENTRAL</span>
             <div class="flex gap-1">
-                <button class="border border-white/40 px-2 py-0.5 bg-white/10">⊞ menú principal</button>
-                <button class="border border-white/40 px-2 py-0.5 bg-white/10">⨯ cerrar sesión</button>
-                <span class="ml-2">h.58</span>
+                <button class="border border-white/50 px-1 bg-white/10">⊞ menú principal</button>
+                <button class="border border-white/50 px-1 bg-white/10">⨯ cerrar sesión</button>
+                <span>h.56</span>
             </div>
         </div>
     </div>
 
-    <main class="p-4 flex-grow">
-        <h2 class="text-usm-blue font-bold text-sm mb-4">↘ Ficha Personal</h2>
+    <div class="p-2">
+        <div class="text-siga-blue font-bold mb-2">↘ Ficha Personal</div>
 
-        <div class="flex gap-6 mb-6">
-            <div class="flex-grow grid grid-cols-12 gap-y-1.5 items-center">
-                <div class="col-span-3 text-gray-600">Nombre completo</div>
-                <div class="col-span-5 font-bold text-blue-900 uppercase">LETELIER CERIC RAFAEL AUGUSTO</div>
-                <div class="col-span-2 text-gray-600 pl-4">Sexo</div>
-                <div class="col-span-2 text-blue-900">Masculino</div>
+        <div class="flex gap-4 border-t pt-2">
+            <div class="flex-grow grid grid-cols-12 gap-y-1">
+                <div class="col-span-2 label-cell">Nombre completo</div>
+                <div class="col-span-6 data-cell">LETELIER CERIC RAFAEL AUGUSTO</div>
+                <div class="col-span-2 label-cell">Sexo</div>
+                <div class="col-span-2 data-cell">Masculino</div>
 
-                <div class="col-span-3 text-gray-600">R.U.T.</div>
-                <div class="col-span-5 font-bold text-blue-900">22.261.908-4</div>
-                <div class="col-span-2 text-gray-600 pl-4">Estado civil</div>
-                <div class="col-span-2"></div>
+                <div class="col-span-2 label-cell">R.U.T.</div>
+                <div class="col-span-6 data-cell">22.261.908-4</div>
+                <div class="col-span-2 label-cell">Estado civil</div>
+                <div class="col-span-2 data-cell"></div>
 
-                <div class="col-span-3 text-gray-600 leading-none">Fecha de nacimiento<br><span class="text-[9px] text-gray-400">(dd/mm/aaaa)</span></div>
-                <div class="col-span-5 text-blue-900">18/11/2006</div>
-                <div class="col-span-2 text-gray-600 pl-4">Nacionalidad</div>
-                <div class="col-span-2 text-blue-900">Chilena</div>
+                <div class="col-span-2 label-cell">Fecha de nacimiento</div>
+                <div class="col-span-6 data-cell">18/11/2006</div>
+                <div class="col-span-2 label-cell">Nacionalidad</div>
+                <div class="col-span-2 data-cell">Chilena</div>
 
-                <div class="col-span-3 text-gray-600 leading-none">Pasaporte</div>
-                <div class="col-span-5"><input type="text" class="input-field w-40"></div>
-                <div class="col-span-2 text-gray-600 pl-4">Previsión</div>
-                <div class="col-span-2">
-                    <select class="input-field w-full"><option>Sin Información</option></select>
-                </div>
+                <div class="col-span-2 label-cell">Pasaporte</div>
+                <div class="col-span-6"><input type="text" class="input-text w-32 font-bold"></div>
+                <div class="col-span-2 label-cell">Previsión</div>
+                <div class="col-span-2"><select class="input-text"><option>Sin Información</option></select></div>
 
-                <div class="col-span-3 text-gray-600">Celular</div>
-                <div class="col-span-5"><input type="text" class="input-field w-40" value="964794046"></div>
-                <div class="col-span-2 text-gray-600 pl-4">Matrícula Militar</div>
-                <div class="col-span-2"></div>
+                <div class="col-span-2 label-cell">Celular</div>
+                <div class="col-span-6"><input type="text" class="input-text w-32" value="964794046"></div>
+                <div class="col-span-2 label-cell">Matrícula Militar</div>
+                <div class="col-span-2 data-cell"></div>
 
-                <div class="col-span-3 text-gray-600">E-mail USM</div>
-                <div class="col-span-5 text-blue-700 italic font-bold">rletelier@usm.cl</div>
+                <div class="col-span-2 label-cell">E-mail USM</div>
+                <div class="col-span-6 data-cell italic underline">rletelier@usm.cl</div>
                 <div class="col-span-4"></div>
 
-                <div class="col-span-3 text-gray-600">E-mail personal</div>
-                <div class="col-span-5 text-blue-700 italic underline">rafaletelier6@gmail.com</div>
-                <div class="col-span-2 text-gray-600 pl-4">N° Hijos</div>
-                <div class="col-span-2"><input type="text" class="input-field w-12" value="0"></div>
+                <div class="col-span-2 label-cell">E-mail personal</div>
+                <div class="col-span-6 data-cell italic underline">rafaletelier6@gmail.com</div>
+                <div class="col-span-2 label-cell">N° Hijos</div>
+                <div class="col-span-2"><input type="text" class="input-text w-12" value="0"></div>
 
-                <div class="col-span-3 text-gray-600">Grupo Sanguíneo</div>
-                <div class="col-span-5">
-                    <select class="input-field w-32"><option>Rh- A</option></select>
-                </div>
-                <div class="col-span-4 text-gray-600 pl-4">Contacto de emergencia</div>
+                <div class="col-span-2 label-cell">Grupo Sanguíneo</div>
+                <div class="col-span-6"><select class="input-text"><option>Rh- A</option></select></div>
+                <div class="col-span-4"></div>
+
+                <div class="col-span-3 label-cell">Autorizo el uso de contacto de emergencia</div>
+                <div class="col-span-9 data-cell">NO</div>
+                <div class="col-span-3 label-cell">Autorizo el tratamiento de datos personales</div>
+                <div class="col-span-9 data-cell">SI</div>
             </div>
-
-            <div class="w-48 flex flex-col items-end pr-4">
-                <div class="border border-black p-0.5 bg-white shadow-sm">
-                    <div class="w-[110px] h-[135px] bg-gray-100 flex items-center justify-center overflow-hidden">
-                         <img src="perfil.png" alt="Foto Perfil" class="w-full h-full object-cover contrast-110 brightness-105">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="space-y-4">
-            <div>
-                <div class="section-header">↘ Datos del apoderado</div>
-                <div class="border-usm p-2 flex gap-4 items-center">
-                    <span class="w-20">R.U.T.</span>
-                    <input type="text" class="input-field input-readonly w-24" value="0">
-                    <div class="ml-auto flex items-center gap-2">
-                        <span>Nombre</span>
-                        <input type="text" class="input-field input-readonly w-80" value="CERIC CARO VESNA KATRYN">
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <div class="section-header">↘ Datos académicos</div>
-                <div class="border-usm overflow-hidden">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Carrera</th>
-                                <th>Campus/Sede</th>
-                                <th>Jornada</th>
-                                <th>Rol</th>
-                                <th>Año carrera</th>
-                                <th>Plan</th>
-                                <th>Última matrícula</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-[10.5px]">
-                            <tr class="bg-white">
-                                <td class="text-left py-2 px-3">
-                                    Ing. Civil Electrónica<br>
-                                    <span class="text-green-600 font-bold text-[9px]">Vigente</span>
-                                </td>
-                                <td>Casa Central Valparaíso</td>
-                                <td>Diurno</td>
-                                <td class="font-mono">202521073-8</td>
-                                <td>2025</td>
-                                <td class="font-bold text-blue-900">2106</td>
-                                <td class="leading-tight">2026-1<br>Matrícula Válida</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="w-32">
+                <div class="border border-black p-0.5">
+                    <img src="perfil.png" alt="Foto" class="w-full">
                 </div>
             </div>
         </div>
-    </main>
 
-    <footer class="bg-usm-orange p-1 flex justify-between px-4 sticky bottom-0">
-        <button class="btn-siga">Enviar cambios</button>
+        <div class="mt-4">
+            <div class="header-blue">↘ Datos del apoderado</div>
+            <table class="table-section">
+                <tr>
+                    <td class="label-cell border-r border-siga-blue">R.U.T.</td>
+                    <td class="p-1"><input type="text" class="input-text input-gray w-20" value="0"> <span class="text-gray-400 italic">Ej. 12345678k</span></td>
+                    <td class="label-cell border-l border-siga-blue">Nombre</td>
+                    <td class="p-1"><input type="text" class="input-text input-gray w-full" value="CERIC CARO VESNA KATRYN"></td>
+                </tr>
+            </table>
+
+            <div class="header-blue">↘ Dirección del grupo familiar</div>
+            <table class="table-section">
+                <tr>
+                    <td class="label-cell">Dirección</td>
+                    <td><input type="text" class="input-text input-gray w-full" value="LAS AZALEAS K22"></td>
+                    <td class="label-cell">Ubicación</td>
+                    <td class="data-cell">San Antonio, Región de Valparaíso, Chile</td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Comuna</td>
+                    <td><select class="input-text input-gray w-full"><option>Santo Domingo</option></select></td>
+                    <td class="label-cell">Fax</td>
+                    <td><input type="text" class="input-text input-gray w-32"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Teléfono</td>
+                    <td colspan="3"><input type="text" class="input-text input-gray w-32" value="964794046"></td>
+                </tr>
+            </table>
+
+            <div class="header-blue">↘ Datos académicos</div>
+            <table class="table-section academic-table">
+                <thead>
+                    <tr>
+                        <th>Carrera</th><th>Campus/Sede</th><th>Jornada</th><th>Rol</th><th>Año carrera</th><th>Plan</th><th>Última matrícula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-left">Ing. Civil Electrónica<br><span class="text-green-600 font-bold">Vigente</span></td>
+                        <td>Casa Central Valparaíso</td><td>Diurno</td><td>202521073-8</td><td>2025</td><td class="data-cell">2106</td>
+                        <td>2026-1<br>Matrícula Válida</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer-bar flex justify-between px-2">
+        <button class="btn-grey">Enviar cambios</button>
         <div class="flex gap-1">
-            <button class="btn-siga">Deshacer</button>
-            <button class="btn-siga">Imprimir</button>
+            <button class="btn-grey">Deshacer</button>
+            <button class="btn-grey">Imprimir</button>
         </div>
-        <button class="btn-siga">Volver</button>
-    </footer>
+        <button class="btn-grey">Volver</button>
+    </div>
 
 </body>
 </html>
