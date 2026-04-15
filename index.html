@@ -2,145 +2,140 @@
 <head>
 <title>Ficha de Alumno</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<LINK href="../estilo.css" rel=stylesheet type=text/css>
 <script type="text/javascript">
 function acceptNum(evt){ if(window.event) key = evt.keyCode; else key = evt.which; return (key <= 13 || (key >= 48 && key <= 57)); }
 function captura(evt){ if(window.event) key = evt.keyCode; else key = evt.which; return ((key!=13 && key!=39 && key!=34)); }
 function SinFoto(foto) { document.images[foto].src = "https://siga.usm.cl/pag/imagen/sinfoto.jpg"; }
-
-function setCombo_comuna(comuna, tipo){
-  mIndex=comuna.selectedIndex;
-  if (tipo == 1) document.getElementById("ubic_pers").innerHTML = "&nbsp;";
-  if (tipo == 2) document.getElementById("ubic_acad").innerHTML = "&nbsp;";
-  var ubicacion = "";
-  if (mIndex > 0) ubicacion = "Santo Domingo, Región de Valparaíso, Chile";
-  if (tipo == 1) document.getElementById("ubic_pers").innerHTML = ubicacion;
-  if (tipo == 2) document.getElementById("ubic_acad").innerHTML = ubicacion;
-}
-
-function inicia() {
- setCombo_comuna(document.form_alumno.in_comuna_pers_disabled,1);
- setCombo_comuna(document.form_alumno.in_comuna_acad,2);
-}
 </script>
 <style type="text/css">
-  body { font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
-  .Encabezado03 { background-color: #003057; color: #FFFFFF; font-weight: bold; font-size: 11px; padding: 2px 5px; }
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 11px; margin: 5px; padding: 0; }
+  .Encabezado03 { background-color: #003057; color: #FFFFFF; font-weight: bold; font-size: 11px; padding: 1px 5px; }
   .Celda02 { background-color: #FFFFFF; border: 1px solid #003057; border-collapse: collapse; }
   .letra7 { font-size: 9px; color: #666666; }
-  .letra8 { font-size: 11px; }
+  .letra07 { font-size: 10px; color: #003366; }
+  input, select { border: 1px solid #7a7a7a; font-size: 11px; height: 18px; padding: 0 2px; }
+  .input-disabled { background-color: #e8e8e8; }
 </style>
 </head>
-<body leftmargin="10" topmargin="10" onLoad="inicia()">
+<body leftmargin="5" topmargin="5">
+
 <form name="form_alumno" method="post">
     <table width="100%" border="0" cellspacing="1" cellpadding="1" class="Encabezado03">
-    <tr><td> Datos personales</td></tr>
+        <tr><td>↘ Datos personales</td></tr>
     </table>
-    <table width="100%" border="0" cellspacing="1" cellpadding="2" class="Celda02">
+    <table width="100%" border="0" cellspacing="1" cellpadding="1" class="Celda02">
       <tr>
         <td width="20%"> Nombre completo</td>
-        <td colspan="4"><font color="#003366">&nbsp; LETELIER CERIC RAFAEL AUGUSTO</font></td>
-        <td rowspan="6" width="16%" align="center" valign="middle">
-          <img name="foto" src="perfil.png" onError="SinFoto('foto');" border="1" height="150" width="150"> 
+        <td colspan="4"><font color="#003366"><b>&nbsp; LETELIER CERIC RAFAEL AUGUSTO</b></font></td>
+        <td rowspan="6" width="16%" align="center" valign="middle" style="border-left: 1px solid #003057;">
+          <img name="foto" src="perfil.png" onError="SinFoto('foto');" border="1" height="140" width="125"> 
         </td>
       </tr>
       <tr>
-        <td width="20%">R.U.T. </td>
-        <td width="33%"><font color="#003366">&nbsp; 22.261.908-4 </font></td>
+        <td>R.U.T. </td>
+        <td width="33%"><font color="#003366"><b>&nbsp; 22.261.908-4</b></font></td>
         <td width="9%">Sexo</td>
-        <td width="2%" align="center">&nbsp;</td>
-        <td width="20%"><font color="#003366">Masculino</font></td>
+        <td width="2%">&nbsp;</td>
+        <td><font color="#003366"><b>Masculino</b></font></td>
       </tr>
       <tr>
-        <td width="20%">Fecha de nacimiento<br><font class="letra7">(dd/mm/aaaa)</font></td>
-        <td width="33%">&nbsp;<font color="#003366">18/11/2006</font></td>
-        <td width="9%">Estado civil </td>
-        <td width="2%" align="center">&nbsp;</td>
-        <td width="20%"><font color="#003366">&nbsp;</font></td>
-      </tr>
-      <tr>
-        <td width="20%">Pasaporte</td>
-        <td width="33%">&nbsp;<input type="text" size="15" value=""></td>
-        <td width="9%">Nacionalidad</td>
-        <td width="2%" align="center">&nbsp;</td>
-        <td width="20%"><font color="#003366">Chilena</font></td>
-      </tr>
-      <tr>
-        <td width="20%">Celular</td>
-        <td width="33%">&nbsp;<input type="text" size="15" value="964794046"></td>
-        <td width="9%">Previsión</td>
-        <td width="2%" align="center">&nbsp;</td>
-        <td width="20%"><select><option selected>Sin Información</option></select></td>
-      </tr>
-      <tr>
-        <td width="20%">E-mail USM</td>
-        <td>&nbsp;<font color="#003366">rletelier@usm.cl</font></td>
-        <td width="9%">Matrícula Militar</td>
-        <td width="2%" align="center">&nbsp;</td>
-        <td width="20%"><font color="#003366"></font> </td>
-      </tr>
-      <tr>
-        <td width="20%">E-mail personal</td>
-        <td>&nbsp;<font color="#003366">rafaletelier6@gmail.com</font></td>
-        <td width="9%">N° Hijos</td>
-        <td align="center">&nbsp;</td>
-        <td align="left"><input type="text" value="0" size="3"></td>
+        <td>Fecha de nacimiento<br><font class="letra7">(dd/mm/aaaa)</font></td>
+        <td>&nbsp;<font color="#003366"><b>18/11/2006</b></font></td>
+        <td>Estado civil </td>
+        <td>&nbsp;</td>
         <td>&nbsp;</td>
       </tr>
-    </table>
-    <br>
-    <table width="100%" border="0" cellspacing="1" cellpadding="1" class="Encabezado03">
-      <tr><td> Datos del apoderado</td></tr>
-    </table>
-    <table width="100%" border="0" cellspacing="1" cellpadding="2" class="Celda02">
       <tr>
-        <td width="20%">R.U.T.</td>
-        <td width="33%">&nbsp;<input disabled type="text" size="14" value="0"></td>
-        <td width="9%">Nombre</td>
-        <td width="1%" align="center">&nbsp;</td>
-        <td><input disabled type="text" size="35" value="CERIC CARO VESNA KATRYN"></td>
+        <td>Pasaporte</td>
+        <td>&nbsp;<input type="text" size="15" value=""></td>
+        <td>Nacionalidad</td>
+        <td>&nbsp;</td>
+        <td><font color="#003366"><b>Chilena</b></font></td>
+      </tr>
+      <tr>
+        <td>Celular</td>
+        <td>&nbsp;<input type="text" size="15" value="964794046"></td>
+        <td>Previsión</td>
+        <td>&nbsp;</td>
+        <td><select><option>Sin Información</option></select></td>
+      </tr>
+      <tr>
+        <td>E-mail USM</td>
+        <td>&nbsp;<font color="#003366"><b>rletelier@usm.cl</b></font></td>
+        <td>E-mail personal</td>
+        <td colspan="2">&nbsp;<font color="#003366"><b>rafaletelier6@gmail.com</b></font></td>
       </tr>
     </table>
-    <br>
+
+    <div style="height: 5px;"></div>
+
     <table width="100%" border="0" cellspacing="1" cellpadding="1" class="Encabezado03">
-      <tr><td> Dirección del grupo familiar</td></tr>
+      <tr><td>↘ Datos del apoderado</td></tr>
+    </table>
+    <table width="100%" border="0" cellspacing="1" cellpadding="1" class="Celda02">
+      <tr>
+        <td width="20%">R.U.T.</td>
+        <td width="33%">&nbsp;<input disabled type="text" size="14" value="0" class="input-disabled"></td>
+        <td width="9%">Nombre</td>
+        <td width="1%">&nbsp;</td>
+        <td><input disabled type="text" size="35" value="CERIC CARO VESNA KATRYN" class="input-disabled"></td>
+      </tr>
+    </table>
+
+    <div style="height: 5px;"></div>
+
+    <table width="100%" border="0" cellspacing="1" cellpadding="1" class="Encabezado03">
+      <tr><td>↘ Dirección del periodo académico</td></tr>
     </table>
     <table width="100%" border="0" cellspacing="1" cellpadding="2" class="Celda02">
       <tr>
         <td width="20%">Dirección</td>
-        <td colspan="4">&nbsp;<input disabled type="text" size="70" value="LAS AZALEAS K22"></td>
+        <td colspan="2">&nbsp;<input type="text" size="70" value="LAS AZALEAS K22"></td>
+        <td colspan="2">&nbsp;</td>
       </tr>
       <tr>
-        <td width="20%"> Comuna</td>
-        <td width="33%">&nbsp;<select disabled name="in_comuna_pers_disabled"><option>Santo Domingo</option></select></td>
+        <td>Comuna</td>
+        <td width="33%">&nbsp;<select name="comuna"><option selected>Santo Domingo</option></select></td>
         <td width="9%">Ubicación</td>
-        <td width="2%" align="center">&nbsp;</td>
-        <td><font color="#003366"><span id="ubic_pers"></span></font></td>
+        <td width="2%">&nbsp;</td>
+        <td><font color="#003366" class="letra07">San Antonio, Región de Valparaíso, Chile</font></td>
+      </tr>
+      <tr>
+        <td>Teléfono</td>
+        <td>&nbsp;<input type="text" size="15" value="964794046"></td>
+        <td>Tipo de dirección</td>
+        <td>&nbsp;</td>
+        <td><select><option selected>Vive con un familiar</option></select></td>
       </tr>
     </table>
-    <br>
-    <table width="100%" border="0" cellspacing="1" cellpadding="4" class="Encabezado03">
-        <tr><td> Datos académicos</td></tr>
+
+    <div style="height: 5px;"></div>
+
+    <table width="100%" border="0" cellspacing="1" cellpadding="1" class="Encabezado03">
+        <tr><td>↘ Datos académicos</td></tr>
     </table>
-    <table width="100%" border="0" cellspacing="1" cellpadding="2" class="Celda02">
+    <table width="100%" border="0" cellspacing="1" cellpadding="1" class="Celda02">
       <tr>
-        <td align="center">
-            <table width="99%" border="0" cellpadding="2" cellspacing="1" bgcolor="#999999">
-                <tr bgcolor="#E9E9E9">
-                    <td align="center">Carrera</td><td align="center">Campus/Sede</td><td align="center">Rol</td><td align="center">Última matrícula</td>
+        <td align="center" style="padding: 5px;">
+            <table width="100%" border="0" style="font-size: 11px; margin-bottom: 5px;">
+                <tr><td width="19%">Ingreso USM Pregrado:</td><td><font color="#003366"><b>2025</b></font></td></tr>
+            </table>
+            <table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#999999">
+                <tr bgcolor="#E9E9E9" style="color: #003366;">
+                    <td align="center">Carrera</td><td align="center">Campus/Sede</td><td align="center">Rol</td><td align="center">Plan</td><td align="center">Última matrícula</td>
                 </tr>
                 <tr bgcolor="#FFFFFF">
-                    <td>Ing. Civil Electrónica<br><font color="#666666" class="letra7">Vigente</font></td>
+                    <td align="left">&nbsp;Ing. Civil Electrónica<br>&nbsp;<font class="letra7">Vigente</font></td>
                     <td align="center">Casa Central Valparaíso</td>
                     <td align="center">202521073-8</td>
-                    <td align="center">
-                        2026-1<br>Matrícula Válida (13/02/2026)
-                    </td>
+                    <td align="center">2106</td>
+                    <td align="center">2026-1<br>Matrícula Válida (13/02/2026)</td>
                 </tr>
             </table>
         </td>
       </tr>
     </table>
 </form>
+
 </body>
 </html>
