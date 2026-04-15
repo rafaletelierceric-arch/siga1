@@ -4,70 +4,64 @@
 <title>Ficha de Alumno</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <script type="text/javascript">
-function acceptNum(evt){ if(window.event) key = evt.keyCode; else key = evt.which; return (key <= 13 || (key >= 48 && key <= 57)); }
-function captura(evt){ if(window.event) key = evt.keyCode; else key = evt.which; return ((key!=13 && key!=39 && key!=34)); }
 function SinFoto(foto) { document.images[foto].src = "https://siga.usm.cl/pag/imagen/sinfoto.jpg"; }
 </script>
 <style type="text/css">
-  body { font-family: Arial, Helvetica, sans-serif; font-size: 11px; margin: 10px; color: #000; background-color: #fff; }
-  .Encabezado03 { background-color: #003057; color: #FFFFFF; font-weight: bold; font-size: 11px; padding: 2px 5px; height: 18px; display: flex; align-items: center; }
+  body { font-family: Arial, Helvetica, sans-serif; font-size: 10px; margin: 0; padding: 5px; color: #000; background-color: #fff; }
+  .Encabezado03 { background-color: #003057; color: #FFFFFF; font-weight: bold; font-size: 10px; padding: 1px 5px; height: 14px; width: 100%; box-sizing: border-box; }
   .Celda02 { background-color: #FFFFFF; border: 1px solid #003057; border-collapse: collapse; width: 100%; table-layout: fixed; }
-  .Celda02 td { border: 0px; padding: 2px 4px; height: 22px; overflow: hidden; }
-  .letra7 { font-size: 9px; color: #666666; font-weight: normal; line-height: 10px; }
-  .letra07 { font-size: 10px; color: #003366; font-weight: bold; }
-  .dato-azul { color: #003366; font-weight: bold; }
-  input, select { border: 1px solid #7a7a7a; font-size: 11px; height: 18px; padding: 0 2px; font-family: Arial; }
+  .Celda02 td { border: 0px; padding: 1px 3px; height: 18px; vertical-align: middle; }
+  .letra7 { font-size: 8px; color: #666666; font-weight: normal; line-height: 9px; }
+  .letra07 { font-size: 9px; color: #003366; }
+  .dato-azul { color: #003366; font-weight: bold; font-size: 10px; }
+  input, select { border: 1px solid #7a7a7a; font-size: 10px; height: 16px; padding: 0 1px; font-family: Arial; margin: 0; }
   .input-readonly { background-color: #e8e8e8; color: #000; }
-  .tabla-academica { border-collapse: collapse; width: 100%; border: 1px solid #999; }
-  .tabla-academica td { border: 1px solid #999; padding: 3px; text-align: center; }
-  .header-gris { background-color: #E9E9E9; color: #003366; font-weight: normal; }
-  .spacer { height: 8px; }
+  .tabla-interna { border-collapse: collapse; width: 100%; border: 1px solid #999; margin-top: 2px; }
+  .tabla-interna td { border: 1px solid #999; padding: 2px; text-align: center; font-size: 10px; }
+  .header-gris { background-color: #E9E9E9; color: #003366; font-weight: normal; font-size: 10px; }
+  .spacer { height: 4px; }
 </style>
 </head>
 <body>
 
 <form name="form_alumno">
-    <div class="Encabezado03"><img src="https://siga.usm.cl/pag/imagen/jpg/flecha_blanca_fina.gif" width="10" height="10">&nbsp;Datos personales</div>
+    <div class="Encabezado03">↘ Datos personales</div>
     <table class="Celda02">
       <tr>
-        <td width="18%">Nombre completo</td>
+        <td width="15%">Nombre completo</td>
         <td colspan="4" class="dato-azul">&nbsp;LETELIER CERIC RAFAEL AUGUSTO</td>
-        <td rowspan="6" width="145" align="center" valign="middle" style="border-left: 1px solid #003057; padding: 5px;">
-          <img name="foto" src="perfil.png" onError="SinFoto('foto');" border="1" height="150" width="125" style="display:block;"> 
+        <td rowspan="6" width="140" align="center" valign="middle" style="border-left: 1px solid #003057; padding: 2px;">
+          <img name="foto" src="perfil.png" onError="SinFoto('foto');" border="1" height="145" width="125" style="display:block;"> 
         </td>
       </tr>
       <tr>
         <td>R.U.T.</td>
-        <td width="30%" class="dato-azul">&nbsp;22.261.908-4</td>
-        <td width="10%">Sexo</td>
+        <td width="35%" class="dato-azul">&nbsp;22.261.908-4</td>
+        <td width="8%">Sexo</td>
         <td width="2%">&nbsp;</td>
         <td class="dato-azul">Masculino</td>
       </tr>
       <tr>
-        <td valign="top">Fecha de nacimiento<br><span class="letra7">(dd/mm/aaaa)</span></td>
-        <td class="dato-azul" valign="top">&nbsp;18/11/2006</td>
+        <td>Fecha de nacimiento<br><span class="letra7">(dd/mm/aaaa)</span></td>
+        <td class="dato-azul">&nbsp;18/11/2006</td>
         <td>Estado civil</td>
         <td>&nbsp;</td>
         <td class="dato-azul">&nbsp;</td>
       </tr>
       <tr>
-        <td valign="top">Pasaporte <br><span class="letra7">(s&oacute;lo extranjero)</span></td>
-        <td valign="top">&nbsp;<input type="text" size="14" value=""></td>
+        <td>Pasaporte <br><span class="letra7">(s&oacute;lo extranjero)</span></td>
+        <td>&nbsp;<input type="text" size="12" value=""></td>
         <td>Nacionalidad</td>
         <td>&nbsp;</td>
         <td class="dato-azul">Chilena</td>
       </tr>
       <tr>
         <td>Celular</td>
-        <td>&nbsp;<input type="text" size="14" value="964794046" onKeyPress="return acceptNum(event)"></td>
+        <td>&nbsp;<input type="text" size="12" value="964794046"></td>
         <td>Previsi&oacute;n</td>
         <td>&nbsp;</td>
         <td>
-            <select style="width: 140px;">
-                <option selected>Sin Información</option>
-                <option>Fonasa</option>
-                <option>Isapre Banmédica</option>
-            </select>
+            <select style="width: 130px;"><option selected>Sin Información</option></select>
         </td>
       </tr>
       <tr>
@@ -80,69 +74,58 @@ function SinFoto(foto) { document.images[foto].src = "https://siga.usm.cl/pag/im
 
     <div class="spacer"></div>
 
-    <div class="Encabezado03"><img src="https://siga.usm.cl/pag/imagen/jpg/flecha_blanca_fina.gif" width="10" height="10">&nbsp;Datos del apoderado</div>
+    <div class="Encabezado03">↘ Datos del apoderado</div>
     <table class="Celda02">
       <tr>
-        <td width="18%">R.U.T.</td>
-        <td width="32%">&nbsp;<input disabled type="text" size="14" value="0" class="input-readonly"> <span class="letra7">Ej. 12345678k</span></td>
-        <td width="10%">Nombre</td>
+        <td width="15%">R.U.T.</td>
+        <td width="35%">&nbsp;<input disabled type="text" size="12" value="0" class="input-readonly"> <span class="letra7">Ej. 12345678k</span></td>
+        <td width="8%">Nombre</td>
         <td width="1%">&nbsp;</td>
-        <td width="39%"><input disabled type="text" size="45" value="CERIC CARO VESNA KATRYN" class="input-readonly"></td>
+        <td width="41%"><input disabled type="text" size="45" value="CERIC CARO VESNA KATRYN" class="input-readonly"></td>
       </tr>
     </table>
 
     <div class="spacer"></div>
 
-    <div class="Encabezado03"><img src="https://siga.usm.cl/pag/imagen/jpg/flecha_blanca_fina.gif" width="10" height="10">&nbsp;Direcci&oacute;n del periodo acad&eacute;mico</div>
+    <div class="Encabezado03">↘ Dirección del periodo académico</div>
     <table class="Celda02">
       <tr>
-        <td width="18%">Direcci&oacute;n</td>
-        <td colspan="4">&nbsp;<input type="text" style="width: 450px;" value="LAS AZALEAS K22" onKeyPress="return captura(event)"></td>
+        <td width="15%">Direcci&oacute;n</td>
+        <td colspan="4">&nbsp;<input type="text" style="width: 90%;" value="LAS AZALEAS K22"></td>
       </tr>
       <tr>
         <td>Comuna</td>
-        <td width="32%">
-            &nbsp;<select name="comuna_acad" style="width:180px;">
-                <option selected>Santo Domingo</option>
-                <option>Viña del Mar</option>
-                <option>Valparaíso</option>
-            </select>
-        </td>
-        <td width="10%">Ubicaci&oacute;n</td>
+        <td width="35%">&nbsp;<select style="width:160px;"><option selected>Santo Domingo</option></select></td>
+        <td width="8%">Ubicaci&oacute;n</td>
         <td width="1%">&nbsp;</td>
         <td class="letra07">San Antonio, Región de Valparaíso, Chile</td>
       </tr>
       <tr>
         <td>Tel&eacute;fono</td>
-        <td>&nbsp;<input type="text" size="14" value="964794046" onKeyPress="return acceptNum(event)"></td>
+        <td>&nbsp;<input type="text" size="12" value="964794046"></td>
         <td>Tipo de direcci&oacute;n</td>
         <td>&nbsp;</td>
-        <td>
-            <select style="width:180px;">
-                <option selected>Vive con un familiar</option>
-                <option>Padres o Sostenedor</option>
-                <option>Arriendo</option>
-            </select>
-        </td>
+        <td><select style="width:160px;"><option selected>Vive con un familiar</option></select></td>
       </tr>
     </table>
 
     <div class="spacer"></div>
 
-    <div class="Encabezado03"><img src="https://siga.usm.cl/pag/imagen/jpg/flecha_blanca_fina.gif" width="10" height="10">&nbsp;Datos acad&eacute;micos</div>
-    <table class="Celda02" style="padding: 8px;">
+    <div class="Encabezado03">↘ Datos acad&eacute;micos</div>
+    <table class="Celda02" style="padding: 4px;">
       <tr>
         <td>
-            <div style="margin-bottom: 5px;">Ingreso USM Pregrado: &nbsp; <span class="dato-azul">2025</span></div>
-            <table class="tabla-academica">
+            <div style="margin-bottom: 2px;">Ingreso USM Pregrado: &nbsp; <span class="dato-azul">2025</span></div>
+            <table class="tabla-interna">
                 <tr class="header-gris">
-                    <td width="25%">Carrera</td>
-                    <td width="15%">Campus/Sede</td>
-                    <td width="10%">Jornada</td>
-                    <td width="12%">Rol</td>
-                    <td width="8%">Año</td>
-                    <td width="8%">Plan</td>
-                    <td width="22%">Última matrícula</td>
+                    <td width="28%">Carrera</td>
+                    <td>Campus/Sede</td>
+                    <td>Jornada</td>
+                    <td>Rol</td>
+                    <td>Año</td>
+                    <td>Plan</td>
+                    <td width="18%">Última matrícula</td>
+                    <td>Situación académica</td>
                 </tr>
                 <tr bgcolor="#FFFFFF">
                     <td align="left">&nbsp;Ing. Civil Electrónica<br>&nbsp;<span class="letra7">Vigente</span></td>
@@ -152,6 +135,7 @@ function SinFoto(foto) { document.images[foto].src = "https://siga.usm.cl/pag/im
                     <td>2025</td>
                     <td class="dato-azul">2106</td>
                     <td>2026-1<br>Matrícula Válida (13/02/2026)</td>
+                    <td class="dato-azul">vigente<br><span class="letra7">(13/02/2026)</span></td>
                 </tr>
             </table>
         </td>
